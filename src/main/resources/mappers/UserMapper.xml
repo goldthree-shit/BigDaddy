@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hx.Dao.UserDao">
+    <select id="findUserbyName" resultType="User" parameterType="String">
+        select uid,username,password from user where username = #{username}
+    </select>
+    <insert id="saveUser" parameterType="User">
+        insert into user(username,password) values (#{userName},#{password})
+    </insert>
+</mapper>

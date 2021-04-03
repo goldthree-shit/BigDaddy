@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <meta charset="UTF-8">
+    <title>大宝贝文件上传助手</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <style>
+        .rgCenter{
+            width: 400px;
+            height: 700px;
+            border: 1px solid #EEEEEE;
+            background-color: white;
+            text-align: center;
+            margin: auto;
+            margin-top: 2px;
+            border-radius: 5px;
+        }
+
+        .top {
+            width: 400px;
+            height: 300px;
+            border: none;
+            background-color: #313131;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .image {
+            text-align:center;
+        }
+        .bigBaby {
+            width: 400px;
+            height: 20px;
+            font-size: large;
+        }
+
+
+        .uploadfile {
+            width: 400px;
+            height: 60px;
+            text-align: center;
+        }
+
+        .file {
+            position: relative;
+            display: inline-block;
+            background: #60A9C1;
+            border: none;
+            border-radius: 15px;
+            padding: 15px 60px;
+            overflow: hidden;
+            color: white;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+        .file input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .file:hover {
+            background: #60A9C1;
+            color: white;
+            text-decoration: none;
+        }
+
+        .buttonsubmit {
+            background-color: #5BC189;
+            border: none;
+            color: white;
+            padding: 15px 60px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 15px;
+            margin-bottom: 180px;
+        }
+
+        td{
+            border-radius: 20px 20px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div >
+        <form  th:action="@{/begin_upload}" enctype="multipart/form-data" method="post">
+            <table class="rgCenter">
+                <tr class="top">
+                    <td>
+                        <div class="image"><img  th:src="@{/img/logo.png}" width="114" height="184"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td ><div class="bigBaby">大宝贝助手</div></td>
+                </tr>
+                <tr>
+                    <td><p style="color: deepskyblue"  th:text="${state}" th:if="${not #strings.isEmpty(state)}" ></p></td>
+                </tr>
+
+                <tr>
+                    <td class="selectfile">
+                        <a  class="file" file>选择文件
+                            <input type="file" name="fileNames" id="fileNames" multiple="multiple">
+                        </a>
+                    </td>
+                </tr>
+
+                <tr class="low">
+                    <td class="uploadfile"><input class="buttonsubmit" type="submit" value="上传文件"></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>
