@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hx.Dao.UserDao">
+<mapper namespace="com.hx.dao.UserDao">
     <select id="findUserbyName" resultType="User" parameterType="String">
         select uid,username,password from user where username = #{username}
     </select>

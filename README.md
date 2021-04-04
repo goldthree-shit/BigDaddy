@@ -1,9 +1,15 @@
-创建springboot项目。
-基本需求分析：
- 1.上传（多文件，带进度条）
- 2.需要验证登录
+##启动方法 
+    在com.hx.BigdaddyApplication中启动java程序
+    已实现的功能。允许可以多文件上传。
+    上传前检测是否有登录。登录，注册。按照当前的用户分区存储。
+
+##基本需求分析：
+ #####1.上传（多文件，带进度条）
+ #####2.需要验证登录
     2.1登陆功能
     2.2注册功能
+
+###创建springboot项目。
 
 我采用的是MVC的设计模式进行的设计
 
@@ -71,7 +77,7 @@ public class UploadController {
 ```java
 package com.hx.service;
 
-import com.hx.Dao.UserFileDao;
+import com.hx.dao.UserFileDao;
 import com.hx.pojo.User;
 import com.hx.pojo.UserFile;
 import com.hx.utils.FileNameUtils;
@@ -125,15 +131,14 @@ public class FileUploadService {
 ```
 文件的存储位置为根目录下的File文件夹下的username文件夹。如果不存在会自动创建
 
-完成登录校验：
-    不太擅长前端。所以每次上传前只能在后台存储一个session来验证有没有登陆过
+####完成登录校验：
+       不太擅长前端。所以每次上传前只能在后台存储一个session来验证有没有登陆过
     登录的controller会调用service层，service又会调用dao层进行查询有没有登录
-    使用mybatis进行dao层的设计
-    会提示是由于用户名密码错误还是该用户名未被注册
+    使用mybatis进行dao层的设计。
+       会提示是由于用户名密码错误还是该用户名未被注册。
 
-注册
-   注册会先查询用户名有否有被注册过。如果没有才能允许注册  
+####注册
+    注册会先查询用户名有否有被注册过。如果没有才能允许注册。
    
-有个utils
-  因为MultipartFile对象的方法getOriginalFilename会根据使用的浏览器不同有不同的返回值。
+有个utils因为MultipartFile对象的方法getOriginalFilename会根据使用的浏览器不同有不同的返回值。
   故需要进行特殊处理。并且同时会在文件名后加上时间戳防止重复文件不能上传的不提。

@@ -1,4 +1,4 @@
-package com.hx.Dao;
+package com.hx.dao;
 
 import com.hx.pojo.User;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,6 +1,6 @@
 package com.hx.service;
 
-import com.hx.Dao.UserFileDao;
+import com.hx.dao.UserFileDao;
 import com.hx.pojo.User;
 import com.hx.pojo.UserFile;
 import com.hx.utils.FileNameUtils;

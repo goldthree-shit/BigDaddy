@@ -1,6 +1,6 @@
 package com.hx.service;
 
-import com.hx.Dao.UserDao;
+import com.hx.dao.UserDao;
 import com.hx.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
