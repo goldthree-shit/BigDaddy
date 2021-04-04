@@ -95,11 +95,10 @@ public class FileUploadService {
 
     @Autowired
     UserFileDao userFileDao;
-    private static String UPLOAD_PATH = "File/upload/";
+    private final String UPLOAD_PATH = "File/upload/";
 
     public boolean keepFiles(MultipartFile[] files, User user) throws IOException {
         System.out.println(user);
-        UPLOAD_PATH += user.getUserName();
         for (MultipartFile file : files) {
             // 判断文件是否有内容
             if (file.isEmpty()) {
@@ -108,7 +107,7 @@ public class FileUploadService {
             }
             String fileName = FileNameUtils.getFileName(file);
             System.out.println("fileName:" + fileName);
-            Path directory = Paths.get(UPLOAD_PATH);
+            Path directory = Paths.get(UPLOAD_PATH + user.getUserName());
             // 判断目录是否存在，不存在创建
             if (!Files.exists(directory)) {
                 Files.createDirectories(directory);
