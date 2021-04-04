@@ -38,7 +38,7 @@ public class FileUploadService {
             try {
                 InputStream inputStream = file.getInputStream();
                 Files.copy(inputStream, directory.resolve(fileName));
-                userFileDao.saveUserFile(new UserFile(null,user.getUid(),fileName,UPLOAD_PATH+'/'+fileName));
+                userFileDao.saveUserFile(new UserFile(null,user.getUid(),fileName,UPLOAD_PATH + user.getUserName()+'/'+fileName));
             } catch (IllegalStateException e) {
                 e.printStackTrace();
                 return false;
