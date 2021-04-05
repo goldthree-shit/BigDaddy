@@ -1,4 +1,5 @@
 ##启动方法 
+    先使用create.sql中的sql命令创建数据库
     在com.hx.BigdaddyApplication中启动java程序
     已实现的功能。允许可以多文件上传。
     上传前检测是否有登录。登录，注册。按照当前的用户分区存储。
